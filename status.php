@@ -11,7 +11,7 @@ function ping($host, $port = 80, $timeout = 10) {
     $status    = 0;
 
     if (!$file) {
-        $status = -1;  // Site down
+        $status = -1;  // If Site down
     } else {
         fclose($file);
         $status = ($stoptime - $starttime) * 1000;
@@ -20,9 +20,10 @@ function ping($host, $port = 80, $timeout = 10) {
     return $status;
 }
 
-$url = "https://stuffmaker.net";
+$url = "https://stuffmaker.net"; //Replace this with the URL you want to Ping
 $host = parse_url($url, PHP_URL_HOST);
 
 echo "HTTP Status: " . get_http_status($url) . "\n";
 echo "Ping: " . ping($host) . " ms\n";
+
 ?>
